@@ -14,15 +14,16 @@ function CedhBanner() {
         cEDH is Commander, but <em>very</em> spicy.
       </h1>
 
-      <p className="h-96 text-2xl font-bold leading-relaxed">
+      <p className="text-2xl font-bold leading-relaxed">
         cEDH is a <em>metagame</em> and <em>mindset</em> where:
-        <ol className="list-inside list-decimal space-y-2 pt-4">
-          <li>All strategies are accepted.</li>
-          <li>Decks majorly affect the game as early as Turn 1.</li>
-          <li>Players only make plays that help them win.</li>
-          <li>Proxies are encouraged.</li>
-        </ol>
       </p>
+
+      <ol className="h-80 list-inside list-decimal space-y-2 pt-4 text-2xl font-bold">
+        <li>All strategies are accepted.</li>
+        <li>Decks majorly affect the game as early as Turn 1.</li>
+        <li>Players only make plays that help them win.</li>
+        <li>Proxies are encouraged.</li>
+      </ol>
     </div>
   );
 }
