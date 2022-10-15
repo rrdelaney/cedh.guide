@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { PageHeader } from '../components/header';
 
 function CedhBanner() {
@@ -31,6 +32,9 @@ function CedhBanner() {
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>What is cEDH?</title>
+      </Head>
       <PageHeader />
       <CedhBanner />
     </>
