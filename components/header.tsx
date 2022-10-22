@@ -24,7 +24,7 @@ const LINKS = [
 const MobileNavigationMenuItemLink = forwardRef<
   HTMLAnchorElement,
   PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }>
->((props, ref) => {
+>(function MobileNavigationMenuItemLink(props, ref) {
   const { href, children, ...rest } = props;
   return (
     <Link href={href}>
