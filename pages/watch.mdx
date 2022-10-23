@@ -1,0 +1,123 @@
+import Image from 'next/image';
+import { YouTubeEmbed } from '../components/embed';
+import { makePageLayout, PageLayout } from '../components/page_layout';
+import { WatchCedhLayout, WatchCedhCard } from '../components/watch_cedh';
+import playToWinLogo from '../public/logos/play-to-win-logo.jpg';
+import playingWithPowerLogo from '../public/logos/playing-with-power-logo.jpg';
+import theMindSculptorsLogo from '../public/logos/the-mind-sculptors-logo.jpg';
+import mamtgLogo from '../public/logos/mod-anon-mtg-logo.jpg';
+import rebellSon from '../public/logos/rebell-son.jpg';
+import mentalMisplayLogo from '../public/logos/mental-misplay-logo.jpg';
+import cedhTvLogo from '../public/logos/cedh-tv-logo.jpg';
+import spikeFeedersLogo from '../public/logos/spike-feeders-logo.png';
+import splitSecondLogo from '../public/logos/split-second-logo.jpg';
+import monarchMediaLogo from '../public/logos/monarch-media-logo.jpg';
+
+# Where can I watch cEDH games?
+
+<WatchCedhLayout>
+
+<WatchCedhCard href="https://www.youtube.com/c/PlaytoWinMTG">
+
+<Image src={playToWinLogo} alt="play to win logo" />
+## Play to Win
+
+High-energy edited gameplay, deck techs, and more.
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/c/PlayingWithPowerMTG">
+
+<Image src={playingWithPowerLogo} alt="playing with power logo" />
+## Playing With Power
+
+A huge catalogue of slick narrated gameplay videos and podcasts.
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/c/TheMindSculptors">
+
+<Image src={theMindSculptorsLogo} alt="the mind sculptors logo" />
+## The Mind Sculptors
+
+Hosts of a yearly sports-style cEDH tournament, plus thorough set reviews.
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/channel/UCxOdCaymEUmlWsVfBH_O7ZQ">
+
+<Image src={mamtgLogo} alt="mamtg logo" />
+## MAMTG
+
+> The greatest cEDH channel in the multiverse.
+
+No lies detected. Edited gameplay with a diverse cast.
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/c/rebellson">
+
+<Image src={rebellSon} alt="rebell son logo" />
+## Rebell Son
+
+Irreverent deck techs and cinéma vérité LGS gameplay videos. Very funny and run
+by an A.I.
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/c/MentalMisplay">
+
+<Image src={mentalMisplayLogo} alt="mental misplay logo" />
+## Mental Misplay
+
+Spicy gameplay and quick deck techs from Ramp Gang, the premier NYC cEDH crew.
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/channel/UCzt3cj_wzuNp4yRP9ZEBAmg">
+
+<Image src={cedhTvLogo} alt="cedh tv logo" />
+## cEDH TV
+
+Deck techs, card reviews, and more from a European perspective. Also has an
+[edited gameplay channel](https://www.youtube.com/channel/UCgT4VwMZezEV85PGZIvadoQ).
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/channel/UCGh7-4mDFssqhu_UpOwRzIA">
+
+<Image src={spikeFeedersLogo} alt="spike feeders logo" />
+## The Spike Feeders
+
+Relaxed IRL games, combo breakdowns, and podcasts from a crew of chill
+Canadians.
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/c/SplitSecond">
+
+<Image src={splitSecondLogo} alt="split second logo" />
+## SplitSecond
+
+Quick narrated games with a wide variety of decks out of Portugal.
+
+</WatchCedhCard>
+
+<WatchCedhCard href="https://www.youtube.com/channel/UCE5ysuTXyfl0tu1303tZJGQ">
+
+<Image src={monarchMediaLogo} alt="monarch media logo" />
+## Monarch Media
+
+Tournament gameplay from one of the premier cEDH event organizers.
+
+</WatchCedhCard>
+
+</WatchCedhLayout>
+
+# A five-part video series explaining cEDH:
+
+<YouTubeEmbed src="https://www.youtube.com/embed/FwJyb8vk--4" />
+
+export default makePageLayout({
+  title: 'Where can I watch cEDH?',
+});

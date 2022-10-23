@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
 import { PageHeader } from '../components/header';
+import { YouTubeEmbed } from '../components/embed';
 
 function CedhBanner() {
   return (
@@ -28,41 +28,6 @@ function CedhBanner() {
         <li>Proxies are encouraged.</li>
       </ol>
     </div>
-  );
-}
-
-function YouTubeEmbed({ src }: { src: string }) {
-  const iframeRef = useRef<HTMLIFrameElement | null>(null);
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    function calculateParentWidth() {
-      const parentRect =
-        iframeRef.current?.parentElement?.getBoundingClientRect();
-
-      if (parentRect) {
-        const { width: parentWidth } = parentRect;
-        setWidth(Math.min(560, parentWidth - 20));
-      }
-    }
-
-    calculateParentWidth();
-    window.addEventListener('resize', calculateParentWidth);
-    return () => {
-      window.removeEventListener('resize', calculateParentWidth);
-    };
-  }, []);
-
-  return (
-    <iframe
-      ref={iframeRef}
-      width={`${width}`}
-      height={`${width * 0.5625}`}
-      src={src}
-      title="YouTube video player"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
   );
 }
 

@@ -1,0 +1,28 @@
+import { IframeEmbed } from '../components/embed';
+import { makePageLayout, PageLayout } from '../components/page_layout';
+
+# How can I track my games and tournaments?
+
+The
+[cEDH Metagame Project](https://www.reddit.com/r/CompetitiveEDH/comments/udj37u/cedh_metagame_project_version_5_2_month_update/)
+is a survey of self-reported cEDH games, and
+[budgetbrews.club](https://budgetbrews.club/deck-lists/#finals) keeps a list of
+finalists in cEDH tournaments. If you'd like to help us track changes to the
+cEDH metagame across the world, report your games and/or tournament finalists
+below.
+
+<IframeEmbed
+  maxWidth={600}
+  height="8600"
+  src="https://docs.google.com/forms/d/e/1FAIpQLScZzUaMJRl50KjeCO1KqJgaHXnrZY88Tv9NZeqZUAFXhpw0vQ/viewform?embedded=true"
+/>
+
+<IframeEmbed
+  maxWidth={600}
+  height="1650"
+  src="https://docs.google.com/forms/d/e/1FAIpQLSf1VZOOgyJDhVRpcFHxptPFmFeNjvhOhB5sg6SQf_f9xqBFcQ/viewform?embedded=true"
+/>
+
+export default makePageLayout({
+  title: 'How can I track my cEDH games?',
+});

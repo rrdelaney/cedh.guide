@@ -16,6 +16,10 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@mdx-js/loader": "^2.1.5",
+    "@mdx-js/react": "^2.1.5",
+    "@next/mdx": "^12.3.1",
+    "@tailwindcss/typography": "^0.5.7",
     "@types/node": "18.8.4",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
@@ -32,6 +36,7 @@
     "semi": true,
     "singleQuote": true,
     "bracketSpacing": true,
-    "useTabs": false
+    "useTabs": false,
+    "proseWrap": "always"
   }
 }

@@ -98,7 +98,7 @@ function DesktopHeaderLink({
     <Link href={href}>
       <a
         className={cn(
-          'hidden md:inline-block text-gray-300 transition-colors hover:text-gray-100',
+          'hidden md:inline-block text-gray-300 transition-colors hover:text-gray-100 underline-offset-4',
           {
             underline: router.pathname === href,
           }
