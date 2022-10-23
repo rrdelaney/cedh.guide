@@ -25,7 +25,7 @@ function useIframeWidth(maxWidth: number) {
     return () => {
       window.removeEventListener('resize', calculateParentWidth);
     };
-  }, []);
+  }, [maxWidth]);
 
   return [iframeRef, width] as const;
 }
