@@ -76,7 +76,7 @@ function MobileNavigationMenu() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="md:hidden absolute right-0 mt-2 p-2 w-screen max-w-xs md:max-w-md origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="z-10 md:hidden absolute right-0 mt-2 p-2 w-screen max-w-xs md:max-w-md origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           {LINKS.map(({ name, href }) => (
             <MobileNavigationMenuItem key={href} href={href}>
               {name}
