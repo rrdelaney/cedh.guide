@@ -1,4 +1,5 @@
 import { makeArticleLayout } from '../../components/article_layout';
+import { BarChart } from '../../components/bar_chart';
 import { DoughnutChart } from '../../components/doughnut_chart';
 import { YouTubeEmbed } from '../../components/embed';
 
@@ -53,6 +54,15 @@ Some key statistics from the analysis:
   subtitle="Excluding Hullbreacher games"
   display="percent"
   data={{ Win: 38.4, Lose: 61.6 }}
+/>
+
+---
+
+<BarChart
+  title="In games won by wheel players, how much does a payoff help?"
+  label="Win Rate"
+  display="percent"
+  data={{ 'Wheel + Payoff': 68.4, 'Total Win Rate': 43.8 }}
 />
 
 ---

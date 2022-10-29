@@ -1,7 +1,9 @@
 import {
-  ArcElement,
   Chart,
-  DoughnutController,
+  CategoryScale,
+  BarController,
+  BarElement,
+  LinearScale,
   Legend,
   SubTitle,
   Title,
@@ -10,37 +12,38 @@ import {
 import { memo, useEffect, useState } from 'react';
 
 Chart.register(
-  ArcElement,
-  DoughnutController,
+  BarController,
   Legend,
   Tooltip,
   Title,
-  SubTitle
+  SubTitle,
+  CategoryScale,
+  LinearScale,
+  BarElement
 );
 
-interface DoughnutChartProps {
+interface BarChartProps {
   title: string;
+  label: string;
   subtitle?: string;
   display?: 'percent';
   data: { [key: string]: number };
 }
 
-export const DoughnutChart = memo(
-  function DoughnutChart({
-    data,
-    display,
-    title,
-    subtitle,
-  }: DoughnutChartProps) {
+export const BarChart = memo(
+  function BarChart({ data, display, title, subtitle, label }: BarChartProps) {
     const [chartEl, setChartEl] = useState<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
       if (chartEl == null) return;
 
       const chart = new Chart(chartEl, {
-        type: 'doughnut',
+        type: 'bar',
         options: {
-          clip: false,
+          scales: {
+            x: { ticks: { color: 'white' }, grid: { color: 'white' } },
+            y: { ticks: { color: 'white' }, grid: { color: 'white' } },
+          },
           plugins: {
             legend: { display: true, labels: { color: 'white' } },
             tooltip: {
@@ -86,7 +89,7 @@ export const DoughnutChart = memo(
           }),
           datasets: [
             {
-              label: title,
+              label,
               data: Object.values(data),
               backgroundColor: [
                 'rgb(153, 0, 0)',
@@ -94,14 +97,13 @@ export const DoughnutChart = memo(
                 'rgb(233, 148, 48)',
                 'rgb(248, 220, 171)',
               ],
-              hoverOffset: 4,
             },
           ],
         },
       });
 
       return () => chart.destroy();
-    }, [chartEl, data, display, subtitle, title]);
+    }, [chartEl, data, display, label, subtitle, title]);
 
     return (
       <div className="relative w-full max-w-sm mx-auto">
