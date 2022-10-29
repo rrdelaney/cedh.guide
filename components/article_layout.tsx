@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react';
 import { PageLayout } from './page_layout';
 
-interface ArticleMeta {
+export interface ArticleMeta {
   title: string;
-  publishDate: Date;
+  publishDate: string;
   description: string;
   imageUrl: string;
 }
@@ -20,7 +20,7 @@ export function makeArticleLayout(meta: ArticleMeta) {
     return (
       <ArticleLayout meta={meta}>
         <article>
-          <span>{meta.publishDate.toDateString()}</span>
+          <span>{new Date(meta.publishDate).toDateString()}</span>
           <h1
             style={{
               textAlign: 'left',
