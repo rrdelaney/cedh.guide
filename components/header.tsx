@@ -114,8 +114,9 @@ export function PageHeader() {
   return (
     <nav className="flex items-center space-x-4 p-6">
       <Link href="/">
-        <a className="flex-1 text-3xl font-bold">What is cEDH?</a>
+        <a className="text-3xl font-bold">What is cEDH?</a>
       </Link>
+      <span className="flex-1" />
 
       <MobileNavigationMenu />
       {LINKS.map(({ name, href }) => (

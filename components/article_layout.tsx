@@ -17,6 +17,24 @@ function ArticleLayout({
 
 export function makeArticleLayout(meta: ArticleMeta) {
   return function ArticleLayoutWithMeta({ children }: PropsWithChildren<{}>) {
-    return <ArticleLayout meta={meta}>{children}</ArticleLayout>;
+    return (
+      <ArticleLayout meta={meta}>
+        <article>
+          <span>{meta.publishDate.toDateString()}</span>
+          <h1
+            style={{
+              textAlign: 'left',
+              textDecoration: 'none',
+              lineHeight: '1.5em',
+              maxWidth: '80%',
+            }}
+          >
+            {meta.title}
+          </h1>
+
+          {children}
+        </article>
+      </ArticleLayout>
+    );
   };
 }

@@ -19,7 +19,7 @@ export function PageLayout({
       )}
 
       <PageHeader />
-      <main className="prose prose-invert lg:prose-xl mx-auto prose-h1:text-center prose-h1:underline py-6 px-4">
+      <main className="prose prose-invert lg:prose-xl mx-auto prose-h1:text-center prose-h1:underline prose-hr:border-gray-300 py-6 px-4">
         {children}
       </main>
     </>

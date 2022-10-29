@@ -1,12 +1,74 @@
 import { makeArticleLayout } from '../../components/article_layout';
+import { DoughnutChart } from '../../components/doughnut_chart';
+import { YouTubeEmbed } from '../../components/embed';
 
 export const meta = {
   title: 'An Analysis of Wheels in cEDH',
+  publishDate: new Date('Jul 26 2022'),
 };
 
 Wheel effects like **Wheel of Fortune** and **Timetwister** are some of _Magic:
 The Gathering_'s most powerful game pieces. They've been a staple of Commander
 games played casually and competitively since the format's early days. Yet in
 cEDH, do the risks of casting a wheel outweigh the benefits?
+
+The [cedh.guide team](https://cedh.guide/team) solicited our friends
+[buzz](https://twitter.com/buuuuuuuzz),
+[Greg](https://twitter.com/curiouscontrol), and
+[Trentyn](https://twitter.com/Trentyn907) to watch and analyze over 440 cEDH
+games from four popular YouTube channels:
+[Play to Win](https://www.youtube.com/channel/UC7339iJMCETmek3jdx9LOkg),
+[Playing With Power](https://www.youtube.com/c/PlayingWithPowerMTG),
+[Moderately Anonymous MTG](https://www.youtube.com/c/ModeratelyAnonymousMTG),
+and [Mental Misplay](https://www.youtube.com/channel/UCYLrJ-Qaxl2HC2pGMGAoUkg).
+
+They asked these questions of their data: Does casting a wheel increase your
+chance of winning the game? How often are wheels cast in cEDH? What difference
+do payoffs like **Notion Thief** make? And just how powerful was the banned card
+**Hullbreacher**?
+
+[Ken Baumann](https://kenbaumann.com/) joined buzz, Greg, and Trentyn to discuss
+their analysis of wheels in cEDH:
+
+<YouTubeEmbed src="https://www.youtube.com/embed/PmDOf9ymGIY" />
+
+---
+
+You can read the
+[full spreadsheet here](https://docs.google.com/spreadsheets/d/1DCznGkY8OwDFzzQoLlcpfHixNjxfNEiVsuebMkxwg4M/edit#gid=1467930701).
+
+Some key statistics from the analysis:
+
+<DoughnutChart
+  title="Players who cast a wheel went on to"
+  subtitle="Including Hullbreacher games"
+  display="percent"
+  data={{ Win: 43.8, Lose: 56.2 }}
+/>
+
+---
+
+<DoughnutChart
+  title="Players who cast a wheel went on to"
+  subtitle="Excluding Hullbreacher games"
+  display="percent"
+  data={{ Win: 38.4, Lose: 61.6 }}
+/>
+
+---
+
+<DoughnutChart
+  title="How many wheels were cast per game?"
+  subtitle="Average wheels per game: 0.6"
+  display="percent"
+  data={{ '0': 66, '1': 21, '2': 9, '≥3': 4 }}
+/>
+
+---
+
+What do you think of wheels in cEDH? Are the risks worth the reward? Do you cast
+wheels primarily to disrupt your opponents or progress your game? Are we
+thinking about this all wrong? Let the
+[cedh.guide team](https://cedh.guide/team) know!
 
 export default makeArticleLayout(meta);
