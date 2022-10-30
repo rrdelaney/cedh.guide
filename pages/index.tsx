@@ -63,44 +63,44 @@ function LearnMore() {
 
       <ol className="list-inside list-decimal space-y-2 pt-4 text-2xl">
         <li>
-          <Link href="/philosophy">
-            <a className="underline">Read up</a>
+          <Link href="/philosophy" className="underline">
+            Read up
           </Link>{' '}
           on the cEDH mindset and meta.
         </li>
         <li>
-          <Link href="/decks">
-            <a className="underline">Browse some decklists</a>
+          <Link href="/decks" className="underline">
+            Browse some decklists
           </Link>{' '}
           for intriguing and proven strategies.
         </li>
         <li>
-          <Link href="/stats">
-            <a className="underline">Study the statistics</a>
+          <Link href="/stats" className="underline">
+            Study the statistics
           </Link>{' '}
           to learn patterns and common cards.
         </li>
         <li>
-          <Link href="/articles">
-            <a className="underline">Read evergreen articles</a>
+          <Link href="/articles" className="underline">
+            Read evergreen articles
           </Link>{' '}
           about cEDH.
         </li>
         <li>
-          <Link href="/watch">
-            <a className="underline">Watch videos</a>
+          <Link href="/watch" className="underline">
+            Watch videos
           </Link>{' '}
           for stack wars, combat steps, and combos.
         </li>
         <li>
-          <Link href="/play">
-            <a className="underline">Play webcam games</a>
+          <Link href="/play" className="underline">
+            Play webcam games
           </Link>{' '}
           in inclusive Discord communities.
         </li>
         <li>
-          <Link href="/track">
-            <a className="underline">Track your games</a>
+          <Link href="/track" className="underline">
+            Track your games
           </Link>{' '}
           to help our community adapt and grow.
         </li>

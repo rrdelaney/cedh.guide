@@ -1,9 +1,10 @@
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import { ArticleMeta } from '../../components/article_layout';
 import { PageLayout } from '../../components/page_layout';
 
 interface ArticlesIndexProps {
-  articles: ArticleMeta[];
+  articles: (ArticleMeta & { slug: string })[];
 }
 
 export default function ArticlesIndex(props: ArticlesIndexProps) {
@@ -25,7 +26,9 @@ export default function ArticlesIndex(props: ArticlesIndexProps) {
                 {new Date(article.publishDate).toDateString()}
               </span>
 
-              <h2 style={{ margin: '0' }}>{article.title}</h2>
+              <h2 style={{ margin: '0' }}>
+                <Link href={`/articles/${article.slug}`}>{article.title}</Link>
+              </h2>
               <p className="text-sm pt-4">{article.description}</p>
             </div>
           );
@@ -36,12 +39,20 @@ export default function ArticlesIndex(props: ArticlesIndexProps) {
 }
 
 export const getStaticProps: GetStaticProps<ArticlesIndexProps> = async () => {
-  const articles = await Promise.all([import('./wheels-in-cedh.mdx')]);
+  const articles = new Map([
+    ['wheels-in-cedh', import('./wheels-in-cedh.mdx')],
+  ]);
 
   return {
     props: {
-      articles: articles.map(
-        (a) => (a as unknown as { meta: ArticleMeta }).meta
+      articles: await Promise.all(
+        Array.from(articles.entries()).map(async ([slug, importMeta]) => {
+          const { meta } = (await importMeta) as unknown as {
+            meta: ArticleMeta;
+          };
+
+          return { ...meta, slug };
+        })
       ),
     },
   };

@@ -27,7 +27,7 @@ const MobileNavigationMenuItemLink = forwardRef<
 >(function MobileNavigationMenuItemLink(props, ref) {
   const { href, children, ...rest } = props;
   return (
-    <Link href={href}>
+    <Link href={href} legacyBehavior>
       <a ref={ref} {...rest}>
         {children}
       </a>
@@ -95,17 +95,16 @@ function DesktopHeaderLink({
   const router = useRouter();
 
   return (
-    <Link href={href}>
-      <a
-        className={cn(
-          'hidden md:inline-block text-gray-300 transition-colors hover:text-gray-100 underline-offset-4',
-          {
-            underline: router.pathname === href,
-          }
-        )}
-      >
-        {children}
-      </a>
+    <Link
+      href={href}
+      className={cn(
+        'hidden md:inline-block text-gray-300 transition-colors hover:text-gray-100 underline-offset-4',
+        {
+          underline: router.pathname === href,
+        }
+      )}
+    >
+      {children}
     </Link>
   );
 }
@@ -113,8 +112,8 @@ function DesktopHeaderLink({
 export function PageHeader() {
   return (
     <nav className="flex items-center space-x-4 p-6">
-      <Link href="/">
-        <a className="text-3xl font-bold">What is cEDH?</a>
+      <Link href="/" className="text-3xl font-bold">
+        What is cEDH?
       </Link>
       <span className="flex-1" />
 
