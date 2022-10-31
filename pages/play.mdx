@@ -1,0 +1,78 @@
+import { makePageLayout } from '../components/page_layout';
+import { PlayCedhLayout, PlayCedhCard } from '../components/play_cedh';
+import { YouTubeEmbed } from '../components/embed';
+import cedhNexusLogo from '../public/logos/cedh-nexus-logo.jpg';
+import rSlashCedhLogo from '../public/logos/r-slash-cedh-logo.png';
+import cedhTabletopSimulatorLogo from '../public/logos/cedh-tabletop-simulator.png';
+import mindMuscleMagicLogo from '../public/logos/mind-muscle-magic-logo.jpg';
+import oathOfTheGaywatchLogo from '../public/logos/oath-of-the-gaywatch-logo.png';
+import mabsQueendomLogo from '../public/logos/mabs-queendom-logo.png';
+import commandersCryptLogo from '../public/logos/commanders-crypt-logo.png';
+import cedhPortugueseLogo from '../public/logos/cedh-portuguese.jpg';
+
+# Where can I play cEDH online?
+
+<PlayCedhLayout>
+
+<PlayCedhCard name="cEDH Nexus" img={cedhNexusLogo} href="https://discord.gg/ssgPCWB" >
+
+Paper games over webcam. You're required to play from a set of established decks
+for awhile, then you're free to play what you want.
+
+</PlayCedhCard>
+
+<PlayCedhCard name="r/CompetitiveEDH" img={rSlashCedhLogo} href="https://discord.gg/cA7uBQsSrz" >
+
+The Discord server for the popular subreddit /r/CompetitiveEDH. Paper games over
+webcam and digital games on Cockatrice.
+
+</PlayCedhCard>
+
+<PlayCedhCard name="Tabletop Simulator cEDH" img={cedhTabletopSimulatorLogo} href="https://discord.gg/mQdJvPx3AD" >
+
+Play cEDH using
+[Tabletop Simulator](https://store.steampowered.com/app/286160/Tabletop_Simulator/),
+a program for Mac and PC available on Steam.
+
+</PlayCedhCard>
+
+<PlayCedhCard name="Mind Muscle Magic" img={mindMuscleMagicLogo} href="https://discord.com/invite/7Prppjtb">
+
+Paper cEDH and casual games over webcam in a supportive and accepting community.
+
+</PlayCedhCard>
+
+<PlayCedhCard name="Oath of the Gaywatch" img={oathOfTheGaywatchLogo} href="https://discord.com/invite/U85NrrXX">
+
+An LGBTQIA+ only space for paper games over webcam, both casual and competitive.
+18+ only.
+
+</PlayCedhCard>
+
+<PlayCedhCard name="Mab's Queendom" img={mabsQueendomLogo} href="https://discord.gg/jRKBhMtpYq">
+
+Paper cEDH and casual games over webcam in the Queendom. 18+ only.
+
+</PlayCedhCard>
+
+<PlayCedhCard name="Commander's Crypt" img={commandersCryptLogo} href="https://discord.com/invite/7HZtDzq3z8" joinText="¡Únete aqui!">
+
+Juegos de webcam Commander en español.
+
+</PlayCedhCard>
+
+<PlayCedhCard name="cEDH Portuguese League" img={cedhPortugueseLogo} href="https://discord.gg/UdvNPHVzpS">
+
+Paper cEDH games over webcam. English and Portuguese are spoken fluently.
+
+</PlayCedhCard>
+
+</PlayCedhLayout>
+
+# Getting Started Guide
+
+<YouTubeEmbed src="https://www.youtube.com/embed/JhyAzcgadB4" />
+
+export default makePageLayout({
+  title: 'Where can I play cEDH?',
+});
