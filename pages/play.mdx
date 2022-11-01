@@ -1,5 +1,5 @@
 import { makePageLayout } from '../components/page_layout';
-import { PlayCedhLayout, PlayCedhCard } from '../components/play_cedh';
+import { PlayCedhCard } from '../components/play_cedh';
 import { YouTubeEmbed } from '../components/embed';
 import cedhNexusLogo from '../public/logos/cedh-nexus-logo.jpg';
 import rSlashCedhLogo from '../public/logos/r-slash-cedh-logo.png';
@@ -12,7 +12,7 @@ import cedhPortugueseLogo from '../public/logos/cedh-portuguese.jpg';
 
 # Where can I play cEDH online?
 
-<PlayCedhLayout>
+<div className="grid gap-8 mb-24">
 
 <PlayCedhCard name="cEDH Nexus" img={cedhNexusLogo} href="https://discord.gg/ssgPCWB" >
 
@@ -67,7 +67,7 @@ Paper cEDH games over webcam. English and Portuguese are spoken fluently.
 
 </PlayCedhCard>
 
-</PlayCedhLayout>
+</div>
 
 # Getting Started Guide
 

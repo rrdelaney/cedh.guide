@@ -1,10 +1,6 @@
 import { PropsWithChildren } from 'react';
 import Image from 'next/image';
 
-export function PlayCedhLayout({ children }: PropsWithChildren<{}>) {
-  return <div className="grid gap-8 mb-24">{children}</div>;
-}
-
 export function PlayCedhCard({
   name,
   img,
