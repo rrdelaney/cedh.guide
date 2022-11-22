@@ -64,8 +64,7 @@ function TeamMembers() {
         <p>
           <a href="https://rdel.dev)">Ryan</a> is cedh.guide&apos;s frontend
           developer. Software engineer at a startup by day and EDH enthusiast
-          all the time, he&apos;s having fun getting back to his roots on this
-          project.
+          all the time, he&apos;s having a lot of fun with this site.
         </p>
       </TeamMember>
 
