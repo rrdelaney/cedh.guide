@@ -12,9 +12,12 @@
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
     "chart.js": "^3.9.1",
+    "i18next": "^22.0.6",
     "next": "^13.0.0",
+    "next-i18next": "^13.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-i18next": "^12.0.0"
   },
   "devDependencies": {
     "@mdx-js/loader": "^2.1.5",

@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { PageHeader } from '../components/header';
+import { useTranslation } from 'react-i18next';
 import { YouTubeEmbed } from '../components/embed';
+import { PageHeader } from '../components/header';
+import { translationProps } from '../lib/translations';
 
 function CedhBanner() {
   return (
@@ -110,10 +112,12 @@ function LearnMore() {
 }
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Head>
-        <title>What is cEDH?</title>
+        <title>{t('what is cedh')}</title>
       </Head>
       <PageHeader />
       <CedhBanner />
@@ -123,3 +127,5 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = translationProps(['common']);

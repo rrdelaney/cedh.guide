@@ -9,6 +9,7 @@ import {
   Fragment,
   PropsWithChildren,
 } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const LINKS = [
   { name: 'Philosophy', href: '/philosophy' },
@@ -110,10 +111,12 @@ function DesktopHeaderLink({
 }
 
 export function PageHeader() {
+  const { t } = useTranslation();
+
   return (
     <nav className="flex items-center space-x-4 p-6">
       <Link href="/" className="text-3xl font-bold">
-        What is cEDH?
+        {t('what is cedh')}
       </Link>
       <span className="flex-1" />
 
