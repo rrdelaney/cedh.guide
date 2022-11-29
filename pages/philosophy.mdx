@@ -1,4 +1,5 @@
 import { makePageLayout } from '../components/page_layout';
+import { translationProps } from '../lib/translations';
 
 # Philosophy
 
@@ -110,3 +111,5 @@ any suggestions, please let us know via stackededh@gmail.com. Thank you!_
 export default makePageLayout({
   title: 'What is the philosophy of cEDH?',
 });
+
+export const getStaticProps = translationProps(['common']);

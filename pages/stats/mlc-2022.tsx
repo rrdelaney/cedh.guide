@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { IframeEmbed } from '../../components/embed';
 import { PageHeader } from '../../components/header';
+import { translationProps } from '../../lib/translations';
 
 function Explainer() {
   return (
@@ -79,3 +80,5 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = translationProps(['common']);

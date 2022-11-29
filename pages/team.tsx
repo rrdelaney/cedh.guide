@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { PropsWithChildren } from 'react';
 import { PageHeader } from '../components/header';
+import { translationProps } from '../lib/translations';
 import kenHeadshot from '../public/team/03-12-2022_500w_circle.png';
 import minoHeadshot from '../public/team/cedh-guide_team_mino.jpg';
 import mordHeadshot from '../public/team/cedh-guide_team_mord.jpg';
@@ -106,3 +107,5 @@ export default function TeamsPage() {
     </>
   );
 }
+
+export const getStaticProps = translationProps(['common']);

@@ -2,6 +2,7 @@ import { makeArticleLayout } from '../../components/article_layout';
 import { BarChart } from '../../components/bar_chart';
 import { DoughnutChart } from '../../components/doughnut_chart';
 import { YouTubeEmbed } from '../../components/embed';
+import { translationProps } from '../../lib/translations';
 
 export const meta = {
   title: 'An Analysis of Wheels in cEDH',
@@ -85,3 +86,5 @@ thinking about this all wrong? Let the
 [cedh.guide team](https://cedh.guide/team) know!
 
 export default makeArticleLayout(meta);
+
+export const getStaticProps = translationProps(['common']);

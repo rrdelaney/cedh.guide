@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { YouTubeEmbed } from '../components/embed';
 import { makePageLayout, PageLayout } from '../components/page_layout';
 import { WatchCedhLayout, WatchCedhCard } from '../components/watch_cedh';
+import { translationProps } from '../lib/translations';
 import playToWinLogo from '../public/logos/play-to-win-logo.jpg';
 import playingWithPowerLogo from '../public/logos/playing-with-power-logo.jpg';
 import theMindSculptorsLogo from '../public/logos/the-mind-sculptors-logo.jpg';
@@ -121,3 +122,5 @@ Tournament gameplay from one of the premier cEDH event organizers.
 export default makePageLayout({
   title: 'Where can I watch cEDH?',
 });
+
+export const getStaticProps = translationProps(['common']);

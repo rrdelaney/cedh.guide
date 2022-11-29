@@ -1,5 +1,6 @@
 import { IframeEmbed } from '../components/embed';
 import { makePageLayout } from '../components/page_layout';
+import { translationProps } from '../lib/translations';
 
 # How can I track my games and tournaments?
 
@@ -26,3 +27,5 @@ below.
 export default makePageLayout({
   title: 'How can I track my cEDH games?',
 });
+
+export const getStaticProps = translationProps(['common']);

@@ -1,6 +1,7 @@
 import { makePageLayout } from '../components/page_layout';
 import { PlayCedhCard } from '../components/play_cedh';
 import { YouTubeEmbed } from '../components/embed';
+import { translationProps } from '../lib/translations';
 import cedhNexusLogo from '../public/logos/cedh-nexus-logo.jpg';
 import rSlashCedhLogo from '../public/logos/r-slash-cedh-logo.png';
 import cedhTabletopSimulatorLogo from '../public/logos/cedh-tabletop-simulator.png';
@@ -76,3 +77,5 @@ Paper cEDH games over webcam. English and Portuguese are spoken fluently.
 export default makePageLayout({
   title: 'Where can I play cEDH?',
 });
+
+export const getStaticProps = translationProps(['common']);

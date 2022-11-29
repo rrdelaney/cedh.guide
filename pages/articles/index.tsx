@@ -1,7 +1,10 @@
 import { GetStaticProps } from 'next';
+import { SSRConfig } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 import { ArticleMeta } from '../../components/article_layout';
 import { PageLayout } from '../../components/page_layout';
+import { translationProps } from '../../lib/translations';
 
 interface ArticlesIndexProps {
   articles: (ArticleMeta & { slug: string })[];
@@ -38,13 +41,20 @@ export default function ArticlesIndex(props: ArticlesIndexProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<ArticlesIndexProps> = async () => {
+export const getStaticProps: GetStaticProps<ArticlesIndexProps> = async (
+  ctx
+) => {
   const articles = new Map([
     ['wheels-in-cedh', import('./wheels-in-cedh.mdx')],
   ]);
 
+  const translations = await serverSideTranslations(ctx.locale ?? 'en-us', [
+    'common',
+  ]);
+
   return {
     props: {
+      ...translations,
       articles: await Promise.all(
         Array.from(articles.entries()).map(async ([slug, importMeta]) => {
           const { meta } = (await importMeta) as unknown as {
