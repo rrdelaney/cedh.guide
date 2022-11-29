@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { YouTubeEmbed } from '../components/embed';
 import { PageHeader } from '../components/header';
 import { translationProps } from '../lib/translations';
+import { NextSeo } from 'next-seo';
 
 function CedhBanner() {
   return (
@@ -116,9 +117,15 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>{t('what is cedh')}</title>
-      </Head>
+      <NextSeo
+        title={t('what is cedh') ?? 'What is cEDH?'}
+        description="cEDH is Commander, but very spicy"
+        openGraph={{
+          url: 'https://cedh.guide',
+          images: [{ url: 'https://cedh.guide/cedh-guide_card-banner_v2.png' }],
+        }}
+      />
+
       <PageHeader />
       <CedhBanner />
       <Explanation />
