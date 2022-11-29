@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { PropsWithChildren } from 'react';
 import { PageHeader } from './header';
 
@@ -16,9 +16,14 @@ export function PageLayout({
   return (
     <>
       {title && (
-        <Head>
-          <title>{title}</title>
-        </Head>
+        <NextSeo
+          title={title}
+          openGraph={{
+            images: [
+              { url: 'https://cedh.guide/cedh-guide_card-banner_v2.png' },
+            ],
+          }}
+        />
       )}
 
       <PageHeader />
