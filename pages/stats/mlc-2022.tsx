@@ -26,11 +26,11 @@ function Explainer() {
 const STAT_GROUPS = [
   {
     title: 'Cards Data',
-    src: 'https://cedhstats.com:3000/public/dashboard/49e9e60e-ff0f-4b57-8465-a8400c754817#theme=night&titled=true&bordered=true',
+    src: 'https://metabase.cedh.guide/public/dashboard/49e9e60e-ff0f-4b57-8465-a8400c754817#theme=night&titled=true&bordered=true',
   },
   {
     title: 'Deck Data',
-    src: 'https://cedhstats.com:3000/public/dashboard/18901df3-1fd7-43b0-bb65-e416b3a2159c#theme=night&titled=true&bordered=true',
+    src: 'https://metabase.cedh.guide/public/dashboard/18901df3-1fd7-43b0-bb65-e416b3a2159c#theme=night&titled=true&bordered=true',
   },
 ];
 
