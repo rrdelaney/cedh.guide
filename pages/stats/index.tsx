@@ -51,15 +51,15 @@ function Explainer() {
 const STAT_GROUPS = [
   {
     title: 'What kind of cards are played in cEDH?',
-    src: 'https://cedhstats.com:3000/public/dashboard/7b9160e2-025d-4f74-9a6c-9963ac90ee0a#theme=night&titled=true&bordered=true',
+    src: 'https://metabase.cedh.guide/public/dashboard/7b9160e2-025d-4f74-9a6c-9963ac90ee0a#theme=night&titled=true&bordered=true',
   },
   {
     title: 'What kind of decks are played in cEDH?',
-    src: 'https://cedhstats.com:3000/public/dashboard/dfebd1ee-7f14-4742-a219-b7000485737d#theme=night&titled=true&bordered=true',
+    src: 'https://metabase.cedh.guide/public/dashboard/dfebd1ee-7f14-4742-a219-b7000485737d#theme=night&titled=true&bordered=true',
   },
   {
     title: 'Without proxies, how much does cEDH cost?',
-    src: 'https://cedhstats.com:3000/public/dashboard/7b4f4e83-9242-4305-99cd-afa95edafa19#theme=night&titled=true&bordered=true',
+    src: 'https://metabase.cedh.guide/public/dashboard/7b4f4e83-9242-4305-99cd-afa95edafa19#theme=night&titled=true&bordered=true',
   },
 ];
 
