@@ -3,13 +3,13 @@ import { AnimatePresence, LazyMotion, m } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Fragment, useCallback, useMemo, useState } from 'react';
+import { Fragment, useCallback, useMemo, useReducer, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { YouTubeEmbed } from '../components/embed';
 import { PageHeader } from '../components/header';
 import { translationProps } from '../lib/translations';
 
-const variants = {
+const deckFinderDialogVariants = {
   enter: (direction: number) => {
     return {
       y: direction > 0 ? 300 : -300,
@@ -30,22 +30,57 @@ const variants = {
   },
 };
 
-function FindMyDeckDialogContents() {
-  const [[page, direction], setPage] = useState([0, 0]);
+interface DeckFinderState {
+  direction: 1 | -1;
+  answers: number[];
+}
 
-  const paginate = (newDirection: number) => {
-    setPage([page + newDirection, newDirection]);
-  };
+interface DeckFinderAddAnswerAction {
+  type: 'ADD_ANSWER';
+  answer: number;
+}
+
+interface DeckFinderBackAction {
+  type: 'BACK';
+}
+
+function deckFinderReducer(
+  state: DeckFinderState,
+  action: DeckFinderAddAnswerAction | DeckFinderBackAction
+): DeckFinderState {
+  switch (action.type) {
+    case 'BACK':
+      return {
+        ...state,
+        direction: -1,
+        answers: state.answers.slice(0, -1),
+      };
+    case 'ADD_ANSWER':
+      return {
+        ...state,
+        direction: 1,
+        answers: [...state.answers, action.answer],
+      };
+    default:
+      return state;
+  }
+}
+
+function FindMyDeckDialogContents() {
+  const [{ answers, direction }, dispatch] = useReducer(deckFinderReducer, {
+    direction: 1,
+    answers: [],
+  });
 
   return (
     <>
-      <div className="relative overflow-hidden min-h-[200px] max-h-[200px] text-gray-900">
+      <div className="relative overflow-hidden min-h-[300px] max-h-[300px] bg-slate-800">
         <AnimatePresence initial={false} custom={direction}>
           <m.div
-            key={page}
-            className="absolute"
+            key={answers.length}
+            className="absolute w-full h-full grid grid-rows-3 items-center px-4"
             custom={direction}
-            variants={variants}
+            variants={deckFinderDialogVariants}
             initial="enter"
             animate="center"
             exit="exit"
@@ -56,17 +91,32 @@ function FindMyDeckDialogContents() {
           >
             <Dialog.Title
               as="h3"
-              className="text-lg font-medium leading-6 text-gray-900"
+              className="text-lg font-medium leading-6 row-span-2"
             >
-              {page}
+              I am question #{answers.length}
             </Dialog.Title>
 
-            <div className="text-gray-900" onClick={() => paginate(-1)}>
-              Go Back
-            </div>
+            <div className="w-full flex grid gap-4 grid-cols-2 md:grid-cols-3">
+              <button
+                onClick={() => dispatch({ type: 'ADD_ANSWER', answer: 1 })}
+                className="border-white flex-1 border rounded-sm p-3 font-bold hover:bg-slate-700 transition"
+              >
+                Choice One
+              </button>
 
-            <div className="text-gray-900" onClick={() => paginate(1)}>
-              Select Answer
+              <button
+                onClick={() => dispatch({ type: 'ADD_ANSWER', answer: 2 })}
+                className="border-white flex-1 border rounded-sm p-3 font-bold hover:bg-slate-700 transition"
+              >
+                Choice Two
+              </button>
+
+              <button
+                onClick={() => dispatch({ type: 'BACK' })}
+                className="border-white flex-1 border rounded-sm p-3 font-bold hover:bg-slate-700 transition"
+              >
+                Back
+              </button>
             </div>
           </m.div>
         </AnimatePresence>
@@ -96,7 +146,7 @@ function FindMyDeckButton() {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex min-h-full items-center justify-center p-4 text-center ">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -106,7 +156,7 @@ function FindMyDeckButton() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-2xl transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all rounded-md">
                   <FindMyDeckDialogContents />
                 </Dialog.Panel>
               </Transition.Child>
