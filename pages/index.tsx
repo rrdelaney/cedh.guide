@@ -8,6 +8,96 @@ import { useTranslation } from 'react-i18next';
 import { YouTubeEmbed } from '../components/embed';
 import { PageHeader } from '../components/header';
 import { translationProps } from '../lib/translations';
+import cn from 'classnames';
+
+type DeckQuestionSet = {
+  question: string;
+  answers: [A: string, B: string, C: string];
+};
+
+const DECK_QUESTIONS: DeckQuestionSet[] = [
+  {
+    question: `What's your favorite way to win a game?`,
+    answers: [
+      `Going for fast winds with explosive combo turns.`,
+      `Generating advantage over the course of the same until no one can stop me.`,
+      `Slowing down my opponents until I can win in the late game with combat or a combo.`,
+    ],
+  },
+  {
+    question: `What's your favorite way to win a game?`,
+    answers: [
+      `Going for fast winds with explosive combo turns.`,
+      `Generating advantage over the course of the same until no one can stop me.`,
+      `Slowing down my opponents until I can win in the late game with combat or a combo.`,
+    ],
+  },
+];
+
+function DeckFinderQuestion({
+  questionNumber,
+  onSelect,
+  onBack,
+}: {
+  questionNumber: number;
+  onSelect: (answer: number) => void;
+  onBack: () => void;
+}) {
+  return (
+    <>
+      <Dialog.Title as="h3" className="text-xl font-medium leading-6 my-6">
+        {DECK_QUESTIONS[questionNumber].question}
+      </Dialog.Title>
+
+      <div className="w-full flex grid gap-4 auto-rows-fr grid-cols-2">
+        {DECK_QUESTIONS[questionNumber].answers.map((answer, i) => {
+          return (
+            <button
+              key={i}
+              onClick={() => onSelect(i)}
+              className="border-white flex-1 border rounded-sm p-3 hover:bg-slate-700 transition"
+            >
+              {answer}
+            </button>
+          );
+        })}
+
+        <button
+          onClick={onBack}
+          disabled={questionNumber === 0}
+          className={cn(
+            'border-white flex-1 border rounded-sm p-3 transition',
+            questionNumber === 0
+              ? 'opacity-50'
+              : 'opacity-75 hover:opacity-100 hover:bg-slate-700'
+          )}
+        >
+          Go back
+        </button>
+      </div>
+    </>
+  );
+}
+
+function DeckFinderAnswer({
+  answers,
+  onReset,
+}: {
+  answers: number[];
+  onReset: () => void;
+}) {
+  return (
+    <>
+      Congrats!!!
+      <button
+        onClick={onReset}
+        className="border-white flex-1 border rounded-sm p-3 transition hover:bg-slate-700"
+      >
+        Restart
+      </button>
+    </>
+  );
+}
 
 const deckFinderDialogVariants = {
   enter: (direction: number) => {
@@ -44,9 +134,16 @@ interface DeckFinderBackAction {
   type: 'BACK';
 }
 
+interface DeckFinderResetAction {
+  type: 'RESET';
+}
+
 function deckFinderReducer(
   state: DeckFinderState,
-  action: DeckFinderAddAnswerAction | DeckFinderBackAction
+  action:
+    | DeckFinderAddAnswerAction
+    | DeckFinderBackAction
+    | DeckFinderResetAction
 ): DeckFinderState {
   switch (action.type) {
     case 'BACK':
@@ -61,6 +158,8 @@ function deckFinderReducer(
         direction: 1,
         answers: [...state.answers, action.answer],
       };
+    case 'RESET':
+      return { direction: -1, answers: [] };
     default:
       return state;
   }
@@ -74,11 +173,11 @@ function FindMyDeckDialogContents() {
 
   return (
     <>
-      <div className="relative overflow-hidden min-h-[300px] max-h-[300px] bg-slate-800">
+      <div className="relative overflow-hidden max-h-[480px] min-h-[480px] md:min-h-[360px] md:max-h-[360px] bg-slate-800">
         <AnimatePresence initial={false} custom={direction}>
           <m.div
             key={answers.length}
-            className="absolute w-full h-full grid grid-rows-3 items-center px-4"
+            className="absolute w-full h-full flex flex-col justify-center items-start p-4"
             custom={direction}
             variants={deckFinderDialogVariants}
             initial="enter"
@@ -89,35 +188,18 @@ function FindMyDeckDialogContents() {
               opacity: { duration: 0.2 },
             }}
           >
-            <Dialog.Title
-              as="h3"
-              className="text-lg font-medium leading-6 row-span-2"
-            >
-              I am question #{answers.length}
-            </Dialog.Title>
-
-            <div className="w-full flex grid gap-4 grid-cols-2 md:grid-cols-3">
-              <button
-                onClick={() => dispatch({ type: 'ADD_ANSWER', answer: 1 })}
-                className="border-white flex-1 border rounded-sm p-3 font-bold hover:bg-slate-700 transition"
-              >
-                Choice One
-              </button>
-
-              <button
-                onClick={() => dispatch({ type: 'ADD_ANSWER', answer: 2 })}
-                className="border-white flex-1 border rounded-sm p-3 font-bold hover:bg-slate-700 transition"
-              >
-                Choice Two
-              </button>
-
-              <button
-                onClick={() => dispatch({ type: 'BACK' })}
-                className="border-white flex-1 border rounded-sm p-3 font-bold hover:bg-slate-700 transition"
-              >
-                Back
-              </button>
-            </div>
+            {answers.length === DECK_QUESTIONS.length ? (
+              <DeckFinderAnswer
+                answers={answers}
+                onReset={() => dispatch({ type: 'RESET' })}
+              />
+            ) : (
+              <DeckFinderQuestion
+                questionNumber={answers.length}
+                onSelect={(i) => dispatch({ type: 'ADD_ANSWER', answer: i })}
+                onBack={() => dispatch({ type: 'BACK' })}
+              />
+            )}
           </m.div>
         </AnimatePresence>
       </div>
@@ -156,7 +238,7 @@ function FindMyDeckButton() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-2xl transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all rounded-md">
+                <Dialog.Panel className="w-full max-w-2xl transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all rounded-m">
                   <FindMyDeckDialogContents />
                 </Dialog.Panel>
               </Transition.Child>
