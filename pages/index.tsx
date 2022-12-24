@@ -62,7 +62,7 @@ function DeckFinderQuestion({
           return (
             <button
               key={i}
-              onClick={() => onSelect(i)}
+              onClick={() => onSelect(i + 1)}
               className="border-white flex-1 border rounded-sm p-3 hover:bg-slate-700 transition"
             >
               {answer}
@@ -87,6 +87,31 @@ function DeckFinderQuestion({
   );
 }
 
+interface DeckFinderResult {
+  deckName: string;
+  videoUrl: string;
+  intro: string;
+}
+
+type DeckQuestionAnswer = 1 | 2 | 3;
+type DeckQuestionAnswerList =
+  `${DeckQuestionAnswer}:${DeckQuestionAnswer}:${DeckQuestionAnswer}`;
+
+const DECK_ANSWER_RESULTS: Partial<
+  Record<DeckQuestionAnswerList, DeckFinderResult>
+> = {
+  '1:1:1': {
+    deckName: 'Jeska / Tymna Mad Farm',
+    videoUrl: '',
+    intro: '',
+  },
+  '1:1:2': {
+    deckName: 'Korvold Treasure Storm',
+    videoUrl: '',
+    intro: '',
+  },
+};
+
 function DeckFinderAnswer({
   answers,
   onReset,
@@ -94,16 +119,27 @@ function DeckFinderAnswer({
   answers: number[];
   onReset: () => void;
 }) {
+  const selectedResult =
+    DECK_ANSWER_RESULTS[answers.join(':') as DeckQuestionAnswerList];
+
+  if (selectedResult == null) {
+    return (
+      <div className="w-full flex flex-col items-center space-y-4">
+        <span>There was an error. Please try again.</span>
+        <button
+          onClick={onReset}
+          className="border-white border rounded-sm p-2 transition hover:bg-slate-700"
+        >
+          Restart
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <>
+    <div className="w-full flex flex-col items-center space-y-4">
       Congrats!!!
-      <button
-        onClick={onReset}
-        className="border-white flex-1 border rounded-sm p-3 transition hover:bg-slate-700"
-      >
-        Restart
-      </button>
-    </>
+    </div>
   );
 }
 
