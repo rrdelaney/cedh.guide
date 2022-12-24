@@ -1,4 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
+import cn from 'classnames';
 import { AnimatePresence, LazyMotion, m } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
@@ -8,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 import { YouTubeEmbed } from '../components/embed';
 import { PageHeader } from '../components/header';
 import { translationProps } from '../lib/translations';
-import cn from 'classnames';
 
 type DeckQuestionSet = {
   question: string;
@@ -109,6 +109,41 @@ const DECK_ANSWER_RESULTS: Partial<
     deckName: 'Korvold Treasure Storm',
     videoUrl: 'https://www.youtube.com/embed/JNnQiYSd9q0',
     intro: `This is a turbo deck that uses Ad Nauseam, Korvold, and Treasure tokens to storm off and find a win.`,
+  },
+  '1:1:3': {
+    deckName: 'Kess Naus',
+    videoUrl: 'https://www.youtube.com/embed/4SoDnnYvX1Y',
+    intro: `This is a turbo deck that tries to win with Ad Nauseam and wheel effects as soon as possible.`,
+  },
+  '3:2:2': {
+    deckName: 'Kinnan Big Flips',
+    videoUrl: 'https://www.youtube.com/embed/iWeL308Ge2g',
+    intro: `This is a stax deck that can combo out early or activate Kinnan to flip game-changing creatures.`,
+  },
+  '3:2:1': {
+    deckName: 'Winota Snowball Stax',
+    videoUrl: 'https://www.youtube.com/embed/RCD_USHBCHQ',
+    intro: `This is a stax deck that quickly layers multiple disruptive creatures and that can put out big damage—or infinite combos—fast.`,
+  },
+  '2:2:3': {
+    deckName: 'Najeela Tempo',
+    videoUrl: 'https://www.youtube.com/embed/cmXtCecACcI',
+    intro: `This is a midrange deck that can win through token-swarm combat and that plays a high proportion of the meta's best cards`,
+  },
+  '2:3:3': {
+    deckName: 'Niv-Mizzet Control',
+    videoUrl: 'https://www.youtube.com/embed/jA_7-a-_RHo',
+    intro: `This is a midrange deck that uses its commander for two-card combos after disrupting opponents' gameplans.`,
+  },
+  '2:2:2': {
+    deckName: 'Malcolm Temur Pirates',
+    videoUrl: 'https://www.youtube.com/embed/kqVqZi5jNoM',
+    intro: `This is a midrange deck that rushes out a winning combo with Glint-Horn Buccaneer while holding plenty of blue interaction.`,
+  },
+  '2:2:1': {
+    deckName: 'Krark / Sakashima Storm',
+    videoUrl: 'https://www.youtube.com/embed/wZbPsCb_CfY',
+    intro: `This is a midrange deck that uses Krark's triggered ability to piece together a critical mass of resources then storm off.`,
   },
 };
 
