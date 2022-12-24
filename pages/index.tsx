@@ -25,11 +25,19 @@ const DECK_QUESTIONS: DeckQuestionSet[] = [
     ],
   },
   {
-    question: `What's your favorite way to win a game?`,
+    question: `What's your main approach to interaction?`,
     answers: [
-      `Going for fast winds with explosive combo turns.`,
-      `Generating advantage over the course of the same until no one can stop me.`,
-      `Slowing down my opponents until I can win in the late game with combat or a combo.`,
+      `I go all in on my own gameplan and let others try to deal with it.`,
+      `I like to be able to interact at the perfect moment to protect my plan or stop an opponent's.`,
+      `I want to be able to control what my opponents are able to do on most turns.`,
+    ],
+  },
+  {
+    question: `What's your preference for creature count?`,
+    answers: [
+      `I like to play lots of creatures.`,
+      `I like to play a mix of card types.`,
+      `I like to play mostly non-creatures.`,
     ],
   },
 ];
