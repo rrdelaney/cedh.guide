@@ -102,13 +102,13 @@ const DECK_ANSWER_RESULTS: Partial<
 > = {
   '1:1:1': {
     deckName: 'Jeska / Tymna Mad Farm',
-    videoUrl: '',
-    intro: '',
+    videoUrl: 'https://www.youtube.com/embed/xsss1ptL5AU',
+    intro: `This is a turbo deck that uses Ad Nauseam and infinite mana combos to win quick or build advantage with Tymna.`,
   },
   '1:1:2': {
     deckName: 'Korvold Treasure Storm',
-    videoUrl: '',
-    intro: '',
+    videoUrl: 'https://www.youtube.com/embed/JNnQiYSd9q0',
+    intro: `This is a turbo deck that uses Ad Nauseam, Korvold, and Treasure tokens to storm off and find a win.`,
   },
 };
 
@@ -137,8 +137,16 @@ function DeckFinderAnswer({
   }
 
   return (
-    <div className="w-full flex flex-col items-center space-y-4">
-      Congrats!!!
+    <div className="w-full h-full flex flex-col items-start">
+      <span className="text-gray-300 text-sm">We think you might like</span>
+      <span className="text-2xl font-medium mb-4">
+        {selectedResult.deckName}
+      </span>
+
+      <p className="text-md font-light mb-4">{selectedResult.intro}</p>
+      <div className="flex-1 w-full flex items-center justify-center">
+        <YouTubeEmbed src={selectedResult.videoUrl} maxWidth={480} />
+      </div>
     </div>
   );
 }
@@ -217,7 +225,7 @@ function FindMyDeckDialogContents() {
 
   return (
     <>
-      <div className="relative overflow-hidden max-h-[480px] min-h-[480px] md:min-h-[360px] md:max-h-[360px] bg-slate-800">
+      <div className="relative overflow-hidden max-h-[480px] min-h-[480px] bg-slate-800">
         <AnimatePresence initial={false} custom={direction}>
           <m.div
             key={answers.length}

@@ -4,6 +4,7 @@ import {
   useEffect,
   DetailedHTMLProps,
   IframeHTMLAttributes,
+  memo,
 } from 'react';
 
 function useIframeWidth(maxWidth: number) {
@@ -55,11 +56,17 @@ export function IframeEmbed({
   );
 }
 
-export function YouTubeEmbed({ src }: { src: string }) {
+function YouTubeEmbed({
+  src,
+  maxWidth = 560,
+}: {
+  src: string;
+  maxWidth?: number;
+}) {
   return (
     <IframeEmbed
       heightRatio={0.5625}
-      maxWidth={560}
+      maxWidth={maxWidth}
       src={src}
       title="YouTube video player"
       frameBorder="0"
@@ -68,3 +75,6 @@ export function YouTubeEmbed({ src }: { src: string }) {
     />
   );
 }
+
+const YouTubeEmbedMemo = memo(YouTubeEmbed);
+export { YouTubeEmbedMemo as YouTubeEmbed };
