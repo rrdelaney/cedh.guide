@@ -164,8 +164,6 @@ function findClosestDeck(answers: number[]) {
     })
   );
 
-  console.log({ relevanceByDeck });
-
   const [mostRelvantDeckPath] = Array.from(relevanceByDeck).reduce(
     (
       [mostRelevantDeck, highestSeenRelevance],
