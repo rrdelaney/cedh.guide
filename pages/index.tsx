@@ -147,6 +147,41 @@ const DECK_ANSWER_RESULTS: Partial<
   },
 };
 
+function findClosestDeck(answers: number[]) {
+  const relevanceByDeck = new Map(
+    Object.keys(DECK_ANSWER_RESULTS).map((deckPath) => {
+      const relevance = deckPath
+        .split(':')
+        .reduce((totalRelevance, pathAnswer, i, { length: deckPathLength }) => {
+          const multiplier = deckPathLength - 1 - i;
+          return (
+            totalRelevance +
+            (Number(pathAnswer) === answers[i] ? 10 ** multiplier : 0)
+          );
+        }, 0);
+
+      return [deckPath as keyof typeof DECK_ANSWER_RESULTS, relevance] as const;
+    })
+  );
+
+  console.log({ relevanceByDeck });
+
+  const [mostRelvantDeckPath] = Array.from(relevanceByDeck).reduce(
+    (
+      [mostRelevantDeck, highestSeenRelevance],
+      [currentDeck, currentRelevance]
+    ) => {
+      if (currentRelevance > highestSeenRelevance) {
+        return [currentDeck, currentRelevance];
+      } else {
+        return [mostRelevantDeck, highestSeenRelevance];
+      }
+    }
+  );
+
+  return DECK_ANSWER_RESULTS[mostRelvantDeckPath]!;
+}
+
 function DeckFinderAnswer({
   answers,
   onReset,
@@ -154,22 +189,7 @@ function DeckFinderAnswer({
   answers: number[];
   onReset: () => void;
 }) {
-  const selectedResult =
-    DECK_ANSWER_RESULTS[answers.join(':') as DeckQuestionAnswerList];
-
-  if (selectedResult == null) {
-    return (
-      <div className="w-full flex flex-col items-center space-y-4">
-        <span>There was an error. Please try again.</span>
-        <button
-          onClick={onReset}
-          className="border-white border rounded-sm p-2 transition hover:bg-slate-700"
-        >
-          Restart
-        </button>
-      </div>
-    );
-  }
+  const selectedResult = useMemo(() => findClosestDeck(answers), [answers]);
 
   return (
     <div className="w-full h-full flex flex-col items-start">
