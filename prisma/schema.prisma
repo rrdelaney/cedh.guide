@@ -1,0 +1,292 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model cards {
+  id                  Int      @id
+  card_name           String?
+  amount              Int?
+  card_category       String?
+  color_identity      String?
+  primary_card_type   String?
+  secondary_card_type String?
+  mana_value          Int?
+  reserve_list        Boolean?
+  deck                String?
+  unique_to_deck      Boolean?
+}
+
+model colour_sort {
+  colour    String @id
+  sortvalue Int?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model combos {
+  combo  String?
+  colors String?
+  count  Int?
+  decks  String?
+  link   String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model decks {
+  deck       String?
+  commander  String?
+  deck_color String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model eminence_decks {
+  name       String?
+  tournament String?
+  date       DateTime? @db.Date
+  standing   Int?
+  commander  String?
+
+  @@ignore
+}
+
+model historical_cards {
+  id                  Int       @id
+  card_name           String?
+  amount              Int?
+  card_category       String?
+  color_identity      String?
+  primary_card_type   String?
+  secondary_card_type String?
+  mana_value          Int?
+  reserve_list        Boolean?
+  deck                String?
+  unique_to_deck      Boolean?
+  date                DateTime? @db.Date
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model historical_decks {
+  deck       String?
+  commander  String?
+  deck_color String?
+  date       DateTime? @db.Date
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model metagame {
+  date       String?
+  deck1      String?
+  deck2      String?
+  deck3      String?
+  deck4      String?
+  winner     String?
+  end_turn   String?
+  submitter  String?
+  how_played String?
+  win_cons   String?
+
+  @@ignore
+}
+
+model mlc_cards {
+  id                  Int      @id
+  card_name           String?
+  amount              Int?
+  card_category       String?
+  color_identity      String?
+  primary_card_type   String?
+  secondary_card_type String?
+  mana_value          Int?
+  reserve_list        Boolean?
+  deck                String?
+  unique_to_deck      Boolean?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model mlc_decks {
+  deck       String?
+  commander  String?
+  deck_color String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model moxfield_cards {
+  card_name      String?
+  amount         Int?
+  color_identity String?
+  card_type      String?
+  mana_value     Int?
+  deck           String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model moxfield_decks {
+  url       String?
+  commander String?
+  created   DateTime? @db.Date
+  updated   DateTime? @db.Date
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model oracle_text {
+  card_name   String?
+  oracle_text String?
+
+  @@ignore
+}
+
+model pm3_cards {
+  id                  Int      @id
+  card_name           String?
+  amount              Int?
+  card_category       String?
+  color_identity      String?
+  primary_card_type   String?
+  secondary_card_type String?
+  mana_value          Int?
+  reserve_list        Boolean?
+  deck                String?
+  unique_to_deck      Boolean?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model pm3_decks {
+  deck       String?
+  commander  String?
+  deck_color String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model price_history {
+  card_name String?
+  price     Float?   @db.Real
+  date      DateTime @default(dbgenerated("CURRENT_DATE")) @db.Date
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model prices {
+  card_name String?
+  price     Float?  @db.Real
+  change    Float?  @db.Real
+
+  @@ignore
+}
+
+model punt_city_cards {
+  id                  Int      @id
+  card_name           String?
+  amount              Int?
+  card_category       String?
+  color_identity      String?
+  primary_card_type   String?
+  secondary_card_type String?
+  mana_value          Int?
+  reserve_list        Boolean?
+  deck                String?
+  unique_to_deck      Boolean?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model punt_city_decks {
+  deck       String?
+  commander  String?
+  deck_color String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model test {
+  card_name      String?
+  colors         String?
+  color_identity String?
+  mana_value     Int?
+  mana_cost      String?
+  oracle_text    String?
+  types          String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model tokens {
+  name   String?
+  oracle String?
+  count  Int?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model tournament_cards {
+  card_name           String?
+  amount              Int?
+  card_category       String?
+  color_identity      String?
+  primary_card_type   String?
+  secondary_card_type String?
+  mana_value          Int?
+  reserve_list        Boolean?
+  deck                String?
+  unique_to_deck      Boolean?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model tournament_decks {
+  deck       String?
+  commander  String?
+  deck_color String?
+  event      String?
+  date       DateTime? @db.Date
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model tournaments {
+  deck      String?
+  archetype String?
+  commander String?
+  date      DateTime? @db.Date
+
+  @@ignore
+}

@@ -1,10 +1,8 @@
 import { GetStaticProps } from 'next';
-import { SSRConfig } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 import { ArticleMeta } from '../../components/article_layout';
 import { PageLayout } from '../../components/page_layout';
-import { translationProps } from '../../lib/translations';
 
 interface ArticlesIndexProps {
   articles: (ArticleMeta & { slug: string })[];
