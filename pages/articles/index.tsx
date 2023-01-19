@@ -12,16 +12,18 @@ export default function ArticlesIndex(props: ArticlesIndexProps) {
   return (
     <PageLayout title="Articles">
       <h1>Articles</h1>
-      <div className="grid xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         {props.articles.map((article) => {
           return (
             <div key={article.title} className="flex flex-col">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                alt={`${article.title} thumbnail`}
-                src={article.imageUrl}
-                style={{ margin: '0' }}
-              />
+              {article.imageUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  alt={`${article.title} thumbnail`}
+                  src={article.imageUrl}
+                  style={{ margin: '0' }}
+                />
+              )}
 
               <span className="text-sm pt-4">
                 {new Date(article.publishDate).toDateString()}
@@ -44,6 +46,7 @@ export const getStaticProps: GetStaticProps<ArticlesIndexProps> = async (
 ) => {
   const articles = new Map([
     ['wheels-in-cedh', import('./wheels-in-cedh.mdx')],
+    ['variance-in-commander', import('./variance-in-commander.mdx')],
   ]);
 
   const translations = await serverSideTranslations(ctx.locale ?? 'en-us', [

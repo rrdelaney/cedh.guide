@@ -5,7 +5,7 @@ export interface ArticleMeta {
   title: string;
   publishDate: string;
   description: string;
-  imageUrl: string;
+  imageUrl?: string;
 }
 
 function ArticleLayout({
