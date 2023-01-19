@@ -6,10 +6,14 @@ import { PageHeader } from './header';
 interface PageLayoutProps {
   title?: string;
   prose?: string;
+  description?: string;
+  ogImage?: string;
 }
 
 export function PageLayout({
   title,
+  description,
+  ogImage = 'https://cedh.guide/cedh-guide_card-banner_v2.png',
   prose = 'lg:prose-xl',
   children,
 }: PropsWithChildren<PageLayoutProps>) {
@@ -19,9 +23,8 @@ export function PageLayout({
         <NextSeo
           title={title}
           openGraph={{
-            images: [
-              { url: 'https://cedh.guide/cedh-guide_card-banner_v2.png' },
-            ],
+            description: description,
+            images: [{ url: ogImage }],
           }}
         />
       )}

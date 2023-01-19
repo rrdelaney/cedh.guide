@@ -8,7 +8,12 @@ export const meta = {
   title: 'Variance in Commander',
   publishDate: 'Jan 18 2023',
   description: 'How do we calculate variance in a game of Magic?',
+  imageUrl: '/article_variance_header.jpg',
+  imageCopyright: 'Danny Ghitis',
+  author: 'Dr. Michael V. LeVine & Ken Baumann',
 };
+
+![picture showing many players in a magic tournament](/article_variance_header.jpg)
 
 **What is variance?** The meaning of the word differs in colloquial language and
 statistics, but the intersection of these meanings is essentially this: if an
@@ -67,22 +72,23 @@ calculate the likelihood of winning 4 games based on some hypothetical win
 rates. If p is the probability of your record, and we’ve played N games and won
 M times, we can calculate p as as a function of your true win rate:
 
-![win rate equation](/article_variance_equation.png)
+<img
+  src="/article_variance_equation.png"
+  alt="win rate equation"
+  className="filter invert"
+/>
 
 There’s one additional trick here that may not be familiar if you haven’t taken
-a probability class, the term
-
-<img src="/article_variance_nm.png" alt="n m" className="m-0 inline" />. There
-are many sequences of games that amount to a 4-6 record. We need another term,
-called the binomial coefficient, which counts the number of possible ways to
-have won N games out of M total games, and that’s <img
-  src="/article_variance_nm.png"
-  alt="n m"
-  className="m-0 inline"
-/>. This is actually part of what makes being confident about records near 50% even
-more difficult to nail down; there’s a lot of ways to win half your games and lose
-half your games, so the probability of those types of records are a bit inflated,
-regardless of your true win rate.
+a probability class, the term <img src="/article_variance_nm.png" alt="n m"
+className="m-0 inline filter invert" style={{margin: 0}} /> . There are many
+sequences of games that amount to a 4-6 record. We need another term, called the
+binomial coefficient, which counts the number of possible ways to have won N
+games out of M total games, and that’s <img src="/article_variance_nm.png"
+alt="n m" className="inline filter invert" style={{margin: 0}} /> . This is
+actually part of what makes being confident about records near 50% even more
+difficult to nail down; there’s a lot of ways to win half your games and lose
+half your games, so the probability of those types of records are a bit
+inflated, regardless of your true win rate.
 
 We can now compute some probabilities. The probability of 4 wins and 6 loses if
 you have a true win rate of 25% is 0.15. That means you’d expect this type of

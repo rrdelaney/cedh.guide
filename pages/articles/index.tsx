@@ -10,7 +10,10 @@ interface ArticlesIndexProps {
 
 export default function ArticlesIndex(props: ArticlesIndexProps) {
   return (
-    <PageLayout title="Articles">
+    <PageLayout
+      title="Articles"
+      description={`The latest: ${props.articles[0].title}`}
+    >
       <h1>Articles</h1>
       <div className="grid gap-4 xl:grid-cols-2">
         {props.articles.map((article) => {
@@ -23,6 +26,11 @@ export default function ArticlesIndex(props: ArticlesIndexProps) {
                   src={article.imageUrl}
                   style={{ margin: '0' }}
                 />
+              )}
+              {article.imageCopyright && (
+                <span className="text-xs pt-2">
+                  Image copyright {article.imageCopyright}
+                </span>
               )}
 
               <span className="text-sm pt-4">
@@ -45,8 +53,8 @@ export const getStaticProps: GetStaticProps<ArticlesIndexProps> = async (
   ctx
 ) => {
   const articles = new Map([
-    ['wheels-in-cedh', import('./wheels-in-cedh.mdx')],
     ['variance-in-commander', import('./variance-in-commander.mdx')],
+    ['wheels-in-cedh', import('./wheels-in-cedh.mdx')],
   ]);
 
   const translations = await serverSideTranslations(ctx.locale ?? 'en-us', [

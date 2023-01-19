@@ -6,13 +6,23 @@ export interface ArticleMeta {
   publishDate: string;
   description: string;
   imageUrl?: string;
+  imageCopyright?: string;
+  author?: string;
 }
 
 function ArticleLayout({
   meta,
   children,
 }: PropsWithChildren<{ meta: ArticleMeta }>) {
-  return <PageLayout title={meta.title}>{children}</PageLayout>;
+  return (
+    <PageLayout
+      title={meta.title}
+      description={meta.description}
+      ogImage={meta.imageUrl}
+    >
+      {children}
+    </PageLayout>
+  );
 }
 
 export function makeArticleLayout(meta: ArticleMeta) {
@@ -31,6 +41,10 @@ export function makeArticleLayout(meta: ArticleMeta) {
           >
             {meta.title}
           </h1>
+
+          {meta.author && (
+            <p style={{ marginTop: '-2rem' }}>By {meta.author}</p>
+          )}
 
           {children}
         </article>
