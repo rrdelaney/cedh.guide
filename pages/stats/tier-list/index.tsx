@@ -49,6 +49,8 @@ export const getStaticProps: GetStaticProps<TierListProps> = async () => {
   const edges = edgesForPlayCountCutoff.get(playCount)!;
 
   return {
+    // TODO: Remove this when Vis.js is working.
+    notFound: true,
     props: { nodes, edges },
   };
 };
