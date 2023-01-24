@@ -53,6 +53,7 @@ export const getStaticProps: GetStaticProps<ArticlesIndexProps> = async (
   ctx
 ) => {
   const articles = new Map([
+    ['ben-loeb-interview', import('./ben-loeb-interview.mdx')],
     ['variance-in-commander', import('./variance-in-commander.mdx')],
     ['wheels-in-cedh', import('./wheels-in-cedh.mdx')],
   ]);
