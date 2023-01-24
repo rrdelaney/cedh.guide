@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.12",
     "@prisma/client": "^4.8.1",
+    "@vercel/analytics": "^0.1.8",
     "chart.js": "^3.9.1",
     "framer-motion": "^8.0.1",
     "i18next": "^22.0.6",
