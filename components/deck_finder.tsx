@@ -14,7 +14,7 @@ const DECK_QUESTIONS: DeckQuestionSet[] = [
     question: `What's your favorite way to win a game?`,
     answers: [
       `Going for fast wins with explosive combo turns.`,
-      `Generating advantage over the course of the same until no one can stop me.`,
+      `Generating advantage over the course of the game until no one can stop me.`,
       `Slowing down my opponents until I can win in the late game with combat or a combo.`,
     ],
   },
