@@ -63,7 +63,7 @@ function TeamMembers() {
       <TeamMember img={ryanHeadshot}>
         <h2>Ryan Delaney</h2>
         <p>
-          <a href="https://rdel.dev)">Ryan</a> is cedh.guide&apos;s frontend
+          <a href="https://rdel.dev">Ryan</a> is cedh.guide&apos;s frontend
           developer. Software engineer at a startup by day and EDH enthusiast
           all the time, he&apos;s having a lot of fun with this site.
         </p>
