@@ -58,9 +58,11 @@ export function IframeEmbed({
 
 function YouTubeEmbed({
   src,
+  className,
   maxWidth = 560,
 }: {
   src: string;
+  className?: string;
   maxWidth?: number;
 }) {
   return (
@@ -72,6 +74,7 @@ function YouTubeEmbed({
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
+      className={className}
     />
   );
 }
