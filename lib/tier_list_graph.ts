@@ -2,7 +2,7 @@ import { prisma } from './prisma';
 
 function sortMapByValue(map: Map<string, number>) {
   // Convert the object to an array of key-value pairs
-  const dictArray = Object.entries(map);
+  const dictArray = Array.from(map.entries());
 
   // Sort the array by value
   dictArray.sort((a, b) => b[1] - a[1]);
@@ -134,7 +134,11 @@ function generateTierlistForMinPlayCount(
       for (const l in tiers[tier]) {
         for (const tier2 in tiers) {
           for (const l2 in tiers[tier2]) {
-            if (tiers[tier][l] != tiers[tier2][l2]) {
+            if (
+              tiers[tier][l][i] != null &&
+              tiers[tier2][l2][i] != null &&
+              tiers[tier][l] != tiers[tier2][l2]
+            ) {
               edges.push({
                 from: tiers[tier][l][i].commander,
                 to: tiers[tier2][l2][i].commander,
