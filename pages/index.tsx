@@ -86,12 +86,6 @@ function LearnMore() {
           for intriguing and proven strategies.
         </li>
         <li>
-          <Link href="/stats" className="underline">
-            Study the statistics
-          </Link>{' '}
-          to learn patterns and common cards.
-        </li>
-        <li>
           <Link href="/articles" className="underline">
             Read evergreen articles
           </Link>{' '}

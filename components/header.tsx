@@ -14,7 +14,6 @@ import { useTranslation } from 'react-i18next';
 const LINKS = [
   { name: 'Philosophy', href: '/philosophy' },
   { name: 'Decks', href: '/decks' },
-  { name: 'Stats', href: '/stats' },
   { name: 'Articles', href: '/articles' },
   { name: 'Watch', href: '/watch' },
   { name: 'Play', href: '/play' },
