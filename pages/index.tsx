@@ -99,15 +99,9 @@ function LearnMore() {
         </li>
         <li>
           <Link href="/play" className="underline">
-            Play webcam games
+            Play cEDH games
           </Link>{' '}
-          in inclusive Discord communities.
-        </li>
-        <li>
-          <Link href="/track" className="underline">
-            Track your games
-          </Link>{' '}
-          to help our community adapt and grow.
+          in-person and online in casual and organized events.
         </li>
       </ol>
     </div>

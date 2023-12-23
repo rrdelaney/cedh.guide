@@ -1,53 +1,24 @@
 import { makePageLayout } from '../components/page_layout';
 import { PlayCedhCard } from '../components/play_cedh';
-import { YouTubeEmbed } from '../components/embed';
 import { translationProps } from '../lib/translations';
-import cedhNexusLogo from '../public/logos/cedh-nexus-logo.jpg';
 import rSlashCedhLogo from '../public/logos/r-slash-cedh-logo.png';
-import cedhTabletopSimulatorLogo from '../public/logos/cedh-tabletop-simulator.png';
-import mindMuscleMagicLogo from '../public/logos/mind-muscle-magic-logo.jpg';
-import oathOfTheGaywatchLogo from '../public/logos/oath-of-the-gaywatch-logo.png';
-import mabsQueendomLogo from '../public/logos/mabs-queendom-logo.png';
-import commandersCryptLogo from '../public/logos/commanders-crypt-logo.png';
-import cedhPortugueseLogo from '../public/logos/cedh-portuguese.jpg';
 import bayAreaLogo from '../public/logos/bay-area.jpg';
 import socalLogo from '../public/logos/socal.webp';
 import sonomaLogo from '../public/logos/sonoma.jpg';
 
-# Where can I play cEDH online?
+# Where can I find cEDH events?
 
-<div className="grid gap-8 mb-24">
+[topdeck.gg](https://topdeck.gg/) is the best resource for finding organized cEDH events in-person.
+Compete and earn your place in the [TopDeck champion series](https://topdeck.gg/championship-series-2024),
+the premiere EDH tournament circuit.
 
-<PlayCedhCard name="r/CompetitiveEDH" img={rSlashCedhLogo} href="https://discord.gg/cA7uBQsSrz" >
-
-The Discord server for the popular subreddit /r/CompetitiveEDH. Paper games over
-webcam and digital games on Cockatrice.
-
-</PlayCedhCard>
-
-<PlayCedhCard name="Tabletop Simulator cEDH" img={cedhTabletopSimulatorLogo} href="https://discord.gg/mQdJvPx3AD" >
-
-Play cEDH using
-[Tabletop Simulator](https://store.steampowered.com/app/286160/Tabletop_Simulator/),
-a program for Mac and PC available on Steam.
-
-</PlayCedhCard>
-
-<PlayCedhCard name="Mab's Queendom" img={mabsQueendomLogo} href="https://discord.gg/jRKBhMtpYq">
-
-Paper cEDH and casual games over webcam in the Queendom. 18+ only.
-
-</PlayCedhCard>
-
-<PlayCedhCard name="Commander's Crypt" img={commandersCryptLogo} href="https://discord.com/invite/7HZtDzq3z8" joinText="¡Únete aqui!">
-
-Juegos de webcam Commander en español.
-
-</PlayCedhCard>
-
-</div>
+Can't make an in-person event? Register for [Mox Masters](https://moxmasters.events/), a monthly online
+event with top players and real cash prizes.
 
 # Where can I play cEDH in person?
+
+The best way to play cEDH is in-person with a great group of friends. Check out these
+local cEDH Discord servers to get started.
 
 <div className="grid gap-8 mb-24">
 
@@ -73,12 +44,18 @@ pods!
 
 </div>
 
-# Getting Started Guide
+# Where can I play cEDH online?
 
-<YouTubeEmbed
-  src="https://www.youtube.com/embed/JhyAzcgadB4"
-  className="mx-auto"
-/>
+<div className="grid gap-8 mb-24">
+
+<PlayCedhCard name="r/CompetitiveEDH" img={rSlashCedhLogo} href="https://discord.gg/cA7uBQsSrz" >
+
+The Discord server for the popular subreddit /r/CompetitiveEDH. Paper games over
+webcam and digital games on Cockatrice.
+
+</PlayCedhCard>
+
+</div>
 
 export default makePageLayout({
   title: 'Where can I play cEDH?',

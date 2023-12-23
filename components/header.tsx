@@ -17,8 +17,6 @@ const LINKS = [
   { name: 'Articles', href: '/articles' },
   { name: 'Watch', href: '/watch' },
   { name: 'Play', href: '/play' },
-  { name: 'Track', href: '/track' },
-  { name: 'Team', href: '/team' },
 ];
 
 const MobileNavigationMenuItemLink = forwardRef<
