@@ -1,5 +1,7 @@
 import Error from 'next/error';
-import { useCallback, useEffect, useState } from 'react';
+import Image from 'next/image';
+import { FormEvent, useCallback, useState } from 'react';
+import justSpin from '../public/zain-just-win-spin-amelia-watson-ame-grixis-rogsi.gif';
 
 function Loading() {
   return (
@@ -27,40 +29,53 @@ function Loading() {
 }
 
 export default function Page() {
-  const [isLoading, setLoading] = useState<'init' | 'loading' | 'error'>(
-    'init'
-  );
+  const [isLoading, setLoading] = useState<
+    'init' | 'loading' | 'error' | 'spin'
+  >('init');
 
-  const onSubmit = useCallback(() => {
+  const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(e.currentTarget);
+    const isSpin = formData.get('login') === '4';
+
     setLoading('loading');
-
     const offset = Math.floor(Math.random() * 1000);
-    const timeoutId = setTimeout(() => {
-      setLoading('error');
+    setTimeout(() => {
+      setLoading(isSpin ? 'spin' : 'error');
     }, 2000 + offset);
   }, []);
 
   return (
     <div className="flex flex-col mt-10 justify-center items-center space-y-5 text-center">
-      <h1 className="text-3xl font-bold leading-tight">
+      <h1 className="text-3xl font-bold leading-tight px-3">
         DO NOT DISTRIBUTE — RogSi Primer
       </h1>
 
       <h2>For internal use ONLY.</h2>
-      <h2 className="text-bold">
+      <h2 className="text-bold px-3">
         Grixis deck where we look to resolve our powerful enchantments to win
         the game.
       </h2>
 
       {isLoading === 'init' ? (
-        <form onSubmit={onSubmit} className="flex space-x-4">
-          <input className="text-black px-2" placeholder="Login" />
-          <button type="submit" className="text-white">
-            Submit
-          </button>
-        </form>
+        <>
+          <p className="underline">Please login to continue.</p>
+          <form onSubmit={onSubmit} className="flex space-x-4 !mt-1">
+            <input
+              name="login"
+              className="text-black px-2"
+              placeholder="Login"
+              type="password"
+            />
+
+            <button type="submit" className="text-white">
+              Submit
+            </button>
+          </form>
+        </>
       ) : isLoading === 'loading' ? (
         <Loading />
+      ) : isLoading === 'spin' ? (
+        <Image src={justSpin} alt="just spin" />
       ) : (
         <div className="h-[75vh] w-full overflow-hidden relative">
           <div className="absolute bottom-0 inset-x-0">
