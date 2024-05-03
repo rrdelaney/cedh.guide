@@ -1,5 +1,5 @@
 import Error from 'next/error';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function Loading() {
   return (
@@ -27,16 +27,17 @@ function Loading() {
 }
 
 export default function Page() {
-  const [isLoading, setLoading] = useState(true);
-  useEffect(() => {
+  const [isLoading, setLoading] = useState<'init' | 'loading' | 'error'>(
+    'init'
+  );
+
+  const onSubmit = useCallback(() => {
+    setLoading('loading');
+
     const offset = Math.floor(Math.random() * 1000);
     const timeoutId = setTimeout(() => {
-      setLoading(false);
+      setLoading('error');
     }, 2000 + offset);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
   }, []);
 
   return (
@@ -48,10 +49,17 @@ export default function Page() {
       <h2>For internal use ONLY.</h2>
       <h2 className="text-bold">
         Grixis deck where we look to resolve our powerful enchantments to win
-        the game
+        the game.
       </h2>
 
-      {isLoading ? (
+      {isLoading === 'init' ? (
+        <form onSubmit={onSubmit} className="flex space-x-4">
+          <input className="text-black px-2" placeholder="Login" />
+          <button type="submit" className="text-white">
+            Submit
+          </button>
+        </form>
+      ) : isLoading === 'loading' ? (
         <Loading />
       ) : (
         <div className="h-[75vh] w-full overflow-hidden relative">
