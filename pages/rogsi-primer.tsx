@@ -35,8 +35,9 @@ export default function Page() {
   >('init');
 
   const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
-    const formData = new FormData(e.currentTarget);
-    const isSpin = formData.get('login') === '4';
+    const formValue = new FormData(e.currentTarget).get('login');
+    const isSpin =
+      typeof formValue === 'string' && formValue.toLowerCase() === 'cabal4';
 
     setLoading('loading');
     const offset = Math.floor(Math.random() * 1000);
