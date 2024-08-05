@@ -111,18 +111,29 @@ export function PageHeader() {
   const { t } = useTranslation();
 
   return (
-    <nav className="flex items-center space-x-4 p-6">
-      <Link href="/" className="text-3xl font-bold">
-        {t('what is cedh')}
-      </Link>
-      <span className="flex-1" />
+    <>
+      <nav className="flex items-center space-x-4 p-6">
+        <Link href="/" className="text-3xl font-bold">
+          {t('what is cedh')}
+        </Link>
+        <span className="flex-1" />
 
-      <MobileNavigationMenu />
-      {LINKS.map(({ name, href }) => (
-        <DesktopHeaderLink key={href} href={href}>
-          {name}
-        </DesktopHeaderLink>
-      ))}
-    </nav>
+        <MobileNavigationMenu />
+        {LINKS.map(({ name, href }) => (
+          <DesktopHeaderLink key={href} href={href}>
+            {name}
+          </DesktopHeaderLink>
+        ))}
+      </nav>
+      <div className="w-full flex items-center text-center bg-blue-700 text-white py-2 px-4 md:px-8 underline shadow-xl">
+        <a
+          href="https://topdeck.gg/championship-series-2024/voting"
+          target="_blank"
+        >
+          Support cEDH.guide by voting Jason Qiu for the TopDeck Championship
+          Series!
+        </a>
+      </div>
+    </>
   );
 }
