@@ -129,6 +129,7 @@ export function PageHeader() {
         <a
           href="https://topdeck.gg/championship-series-2024/voting"
           target="_blank"
+          rel="noreferrer"
         >
           Support cEDH.guide by voting Jason Qiu for the TopDeck Championship
           Series!
