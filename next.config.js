@@ -6,6 +6,13 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  redirects: async () => [
+    {
+      source: '/:all*',
+      destination: 'https://learncedh.com',
+      permanent: false,
+    },
+  ],
 };
 
 const withMDX = require('@next/mdx')({
